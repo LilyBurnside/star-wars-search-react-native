@@ -7,21 +7,25 @@
  */
 
 import React, {Component} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
+import {StyleSheet, View, Text} from 'react-native';
+import {Input} from 'react-native-elements';
 
 class App extends Component {
+  state = {};
+
+  handleForm = e => {
+    console.log('form handler is running');
+  };
+
   render() {
     return (
       <View style={styles.body}>
-        <Text style={styles.sectionTitle}>Everyone from Star Wars</Text>
+        <Text style={styles.headerText}>Everyone from Star Wars</Text>
+        <Input
+          inputStyle={styles.formText}
+          label="Search for a character:"
+          onChangeText={e => this.handleForm(e)}
+        />
       </View>
     );
   }
@@ -36,7 +40,18 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: '#FFFFFF',
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#1F1F1F',
+  },
+  headerText: {
+    marginTop: 32,
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#00A5FF',
+  },
+  formText: {
+    color: '#FFFFFF',
   },
   sectionContainer: {
     marginTop: 32,
